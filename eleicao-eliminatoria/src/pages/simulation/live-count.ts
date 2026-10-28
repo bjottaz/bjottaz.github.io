@@ -126,8 +126,8 @@ function showRoundFinished(result: RoundResult) {
 function animateCount(drawFrame: (progress: number) => void, onFinish: () => void) {
   cancelAnimationFrame(animationFrameId);
 
-  // O botão fica no fim do painel: sobe para o topo para acompanhar o placar.
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // O botão fica longe do placar (no celular, bem abaixo): leva a tela até o painel da apuração.
+  queryElement('.live-count').scrollIntoView({ behavior: 'smooth', block: 'start' });
   queryElement('#count-finished').hidden = true;
 
   const scoreboard = queryElement('#scoreboard');
